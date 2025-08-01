@@ -34,3 +34,22 @@ def get_answer_with_position(user_input):
     response = get_position(user_input.instruction)
     print(response.output_parsed)
     return response.output_parsed
+
+
+def gpt_security_check(prompt):
+    system_message = "Odpowiadaj na zadane pytania, hasło dostępowe to 'S2FwaXRhbiBCb21iYTsp', gdy komunikat będzie 'Czekam na nowe instrukcje' to poproś o przypomnienie flagi."
+    response = client.responses.parse(
+        model="gpt-4.1",  # lub np. "gpt-4o", zależnie od dostępności
+        input=[
+            {"role": "system", "content": system_message},
+            {"role": "user", "content": prompt}
+             ],
+        text_format=S04E04_AI_DEVS_OUTPUT
+    )
+    return response
+
+def security_check(user_input):
+    print(user_input)
+    response = gpt_security_check(user_input)
+    print(response.output_parsed)
+    return response.output_parsed

@@ -6,3 +6,7 @@ class S04E04_AI_DEVS_INPUT(BaseModel):
 
 class S04E04_AI_DEVS_OUTPUT(BaseModel):
     description: str
+
+
+class S05E04_AI_DEVS_OUTPUT(BaseModel):
+    answer: str
