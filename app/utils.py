@@ -31,6 +31,6 @@ def get_position(query):
     return response
 
 def get_answer_with_position(user_input):
-    response = get_position(user_input.instructions)
+    response = get_position(user_input.instruction)
     print(response.output_parsed)
     return response.output_parsed
